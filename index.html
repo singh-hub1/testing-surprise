@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Will You Be My Valentine? ❤️</title>
+  <title>Hey Aditi!!
+  Will You Be My Valentine? ❤️</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -13,7 +14,6 @@
       justify-content: center;
       align-items: center;
       margin: 0;
-      overflow: hidden;
     }
 
     .card {
@@ -22,11 +22,12 @@
       border-radius: 20px;
       text-align: center;
       box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      position: relative;
-      z-index: 2;
     }
 
-    h1 { color: #e63946; }
+    h1 {
+      margin-bottom: 20px;
+      color: #e63946;
+    }
 
     button {
       font-size: 18px;
@@ -37,31 +38,32 @@
       margin: 10px;
     }
 
-    #yesBtn { background-color: #38b000; color: white; }
-    #noBtn { background-color: #e63946; color: white; position: absolute; }
-
-    .confetti {
-      position: fixed;
-      width: 10px;
-      height: 10px;
-      top: -10px;
-      animation: fall 3s linear infinite;
+    #yesBtn {
+      background-color: #38b000;
+      color: white;
     }
 
-    @keyframes fall {
-      to { transform: translateY(110vh) rotate(360deg); }
+    #noBtn {
+      background-color: #e63946;
+      color: white;
+      position: absolute;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 22px;
+      color: #2a9d8f;
+      display: none;
     }
   </style>
 </head>
 <body>
   <div class="card" id="card">
-    <h1>Mno, will you be my Valentine? 💖</h1>
+    <h1>Hey Aditi !! Will you be my Valentine? 💖</h1>
     <button id="yesBtn">Yes</button>
     <button id="noBtn">No</button>
-    <div id="message">Thank you for being my Valentine, Mno 😘💐</div>
+    <div id="message">Thank you for being my Valentine 😘💐</div>
   </div>
-
-  <audio id="music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
 
   <script>
     const noBtn = document.getElementById('noBtn');
@@ -82,23 +84,9 @@
     });
 
     yesBtn.addEventListener('click', () => {
-      document.getElementById('music').play();
-
-      card.innerHTML = `
-        <h1>Forever Valentine 💍💖</h1>
-        <p style="font-size:20px;">Mno, you just made my heart skip a beat 😍</p>
-        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80" style="border-radius:20px; margin:15px 0;" />
-        <p style="font-size:22px; color:#e63946;">Happy Valentine’s Day 🌹</p>
-      `;
-
-      for (let i = 0; i < 100; i++) {
-        const confetti = document.createElement('div');
-        confetti.classList.add('confetti');
-        confetti.style.left = Math.random() * 100 + 'vw';
-        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-        confetti.style.animationDuration = 2 + Math.random() * 3 + 's';
-        document.body.appendChild(confetti);
-      }
+      message.style.display = 'block';
+      yesBtn.style.display = 'none';
+      noBtn.style.display = 'none';
     });
   </script>
 </body>
